@@ -11,4 +11,8 @@ public class IceCream extends MenuItem {
     public BigDecimal totalPrice(){
         return PRICEPERSCOOP.multiply(numScoop);
     }
+    @Override
+    public String toString(){
+        return this.totalPrice().toString();
+    }
 }

@@ -51,4 +51,8 @@ public class Sundae extends MenuItem {
         }
         return cost;
     }
+    @Override
+    public String toString(){
+        return this.totalPrice().toString();
+    }
 }

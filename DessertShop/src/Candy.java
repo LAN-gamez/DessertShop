@@ -13,4 +13,8 @@ public class Candy extends MenuItem {
     public BigDecimal totalPrice() {
         return PRICE_PER_POUND.multiply(weight);
     }
+    @Override
+    public String toString(){
+        return this.totalPrice().toString();
+    }
 }

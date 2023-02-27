@@ -13,4 +13,8 @@ public class Cookies extends MenuItem {
     public BigDecimal totalPrice() {
         return PRICE_PER_DOZEN.multiply(dozen);
     }
+    @Override
+    public String toString(){
+        return this.totalPrice().toString();
+    }
 }
