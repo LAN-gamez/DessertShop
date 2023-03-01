@@ -1,7 +1,9 @@
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Order {
     List<MenuItem> menuItems;
@@ -22,4 +24,8 @@ public class Order {
         return total.toString();
     }
 
+    public Map<String, List<MenuItem>> groupItemsByName() {
+        return menuItems.stream()
+                .collect(Collectors.groupingBy(MenuItem::getName));
+    }
 }

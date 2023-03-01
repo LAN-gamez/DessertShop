@@ -1,5 +1,6 @@
+import java.util.Map;
 import java.util.Scanner;
-
+import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Main m = new Main();
@@ -56,7 +57,7 @@ public class Main {
                 case "2" -> addCookies(order, scanner);
                 case "3" -> addIceCream(order, scanner);
                 case "4" -> addSundae(order, scanner);
-                case "5" -> printTotal(order);
+                case "5" -> printReceipt(order);
                 default -> System.out.println("Invalid selection, try again");
             }
         }
@@ -117,5 +118,17 @@ public class Main {
     private void printTotal(Order order){
         String total = order.total();
         System.out.printf("Total cost for the order is $%s\n\n\n", total);
+    }
+    private void printReceipt(Order order) {
+        Map<String, List<MenuItem>> categories = order.groupItemsByName();
+        System.out.println("---------------");
+        System.out.println("Purchased Items");
+        for (String category : categories.keySet()) {
+            System.out.println(category);
+            List<MenuItem> items = categories.get(category);
+            for (MenuItem item : items) {
+                System.out.println(items);
+            }
+        }
     }
 }
