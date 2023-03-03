@@ -1,5 +1,5 @@
 import java.math.BigDecimal;
-public class Sundae extends MenuItem {
+public class Sundae extends MenuItem implements Taxable {
     private final BigDecimal PRICEFUDGE = new BigDecimal("1.25");
     private final BigDecimal PRICESTRAWBERRY = new BigDecimal(".75");
     private final BigDecimal PRICECARAMEL = new BigDecimal(".50");
@@ -50,6 +50,9 @@ public class Sundae extends MenuItem {
             cost = cost.add(PRICECOCONUT);
         }
         return cost;
+    }
+    public BigDecimal calculateTax(){
+        return totalPrice().multiply(taxRate);
     }
     @Override
     public String toString(){

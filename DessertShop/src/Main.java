@@ -115,11 +115,8 @@ public class Main {
             }
         }
     }
-    private void printTotal(Order order){
-        String total = order.total();
-        System.out.printf("Total cost for the order is $%s\n\n\n", total);
-    }
     private void printReceipt(Order order) {
+        String total = order.total();
         Map<String, List<MenuItem>> categories = order.groupItemsByName();
         System.out.println("---------------");
         System.out.println("Purchased Items");
@@ -130,5 +127,10 @@ public class Main {
                 System.out.println(items);
             }
         }
+        System.out.println("Sub Total: " + order.total());
+        System.out.println("Tax: " + order.getTax());
+        System.out.println("----------------------");
+        System.out.println("Total: " + order.totalWithTax());
+
     }
 }
